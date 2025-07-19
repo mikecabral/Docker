@@ -1,0 +1,14 @@
+```yaml
+version: '3.1'
+services:
+  ssh-chat:
+    image: byreqz/ssh-chat:latest
+    restart: always
+    ports:
+      - "2022:2022"
+    volumes:
+      - ./ssh-chat-key:/ssh_key
+      - ./admin_keys:/admin_keys
+      - ./motd:/motd
+    container_name: ssh-chat
+```

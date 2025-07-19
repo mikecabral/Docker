@@ -1,0 +1,18 @@
+```yaml
+version: '3'
+
+services:
+  app:
+    image: registry:2
+    container_name: docker-registry
+    restart: unless-stopped
+    environment:
+      REGISTRY_AUTH: htpasswd
+      REGISTRY_AUTH_HTPASSWD_PATH: /auth/htpasswd
+      REGISTRY_AUTH_HTPASSWD_REALM: Local Registry Realm
+    ports:
+      - 5000
+    volumes:
+      - ./data:/var/lib/registry
+      - ./auth:/auth:ro
+```

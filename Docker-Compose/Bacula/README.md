@@ -1,0 +1,1 @@
+##### make sure to create the /etc/bconsole.conf file before hand or it won't deploy properly.. it will mount the file as a directory
