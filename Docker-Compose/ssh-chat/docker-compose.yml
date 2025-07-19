@@ -8,7 +8,15 @@ services:
       - "2022:2022"
     volumes:
       - ./ssh-chat-key:/ssh_key
-      - ./admin_keys:/admin_keys
+      - ./ssh-chat/admin_keys:/admin_keys
       - ./motd:/motd
     container_name: ssh-chat
 ```
+
+make an ssh key for ssh-chat
+```bash
+ssh-keygen -t rsa -b 4096 -N '' -f ./ssh-chat-key
+```
+
+login to chat.yourdomain.com
+ssh -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa mynameischris@chat.yourdomain.com -p 2022
